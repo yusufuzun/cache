@@ -66,12 +66,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BasicCircuitBreakerLibrary\CircuitBreakerLibrary.csproj">
-      <Project>{de10712a-360a-4640-8139-8b043e053506}</Project>
-      <Name>CircuitBreakerLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,7 +27,7 @@ namespace CacheLibrary.Tests
         [Test]
         public void redis_service_connection_available()
         {
-            var cacheService = cacheProvider.GetServices().First() as CacheServiceBase<ConnectionMultiplexer>;
+            var cacheService = cacheProvider.GetServices().First(svc => svc is CacheServiceBase<ConnectionMultiplexer>) as CacheServiceBase<ConnectionMultiplexer>;
             cacheService.CacheEndpoint.GetDatabase().Ping();
             Assert.True(true);
         }
@@ -41,7 +41,7 @@ namespace CacheLibrary.Tests
         [Test]
         public void execute_cached_for_delete_only()
         {
-            cacheProvider.ExecuteCached(new CacheKey(GetType().FullName + "::PrimitiveReference"), () => "", TimeSpan.FromMilliseconds(1));
+            cacheProvider.ExecuteCached(new CacheKey(GetType().FullName + "::PrimitiveReference"), () => "", CacheRule.Delete());
             Assert.True(true);
         }
 
