@@ -22,8 +22,9 @@ var cacheProvider = new BasicCacheProvider(new Dictionary<int, ICacheService>()
 	{2, new StackExchangeRedisService("localhost:6380") }
 }, binarySerializer);
 ```
-Firs dictionary defines services to be concerned. Their first parameters are identifiers of services. 
+First dictionary defines services to be concerned. Their first parameters are identifiers of services. 
 And second parameter is given binary serializer for internal serialize/deserialize operations.
+cacheProvider object most of the time is singleton per application lifestyle. 
 
 ## Execute Function / Set&Get
 Then for caching a function return value, you can call ExecuteCached method. By doing this, you both calling function and caching it with given key:
